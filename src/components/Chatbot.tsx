@@ -32,11 +32,12 @@ const Chatbot: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-4 right-4">
-      <ChatButton onToggle={toggleChat} />
+    <div className="fixed bottom-4 right-4 w-[30rem]">
       <div
-        className={`bg-white shadow-lg rounded-lg p-4 mt-2 ${
-          isVisible ? "block" : "hidden"
+        className={`bg-white shadow-lg rounded-lg p-4 mt-2 transition-all duration-500 ease-in-out transform ${
+          isVisible
+            ? "opacity-100 -translate-y-10 -translate-x-16"
+            : "opacity-0 translate-y-0 translate-x-0"
         }`}
       >
         <MessageDisplay messages={messages} />
@@ -45,6 +46,7 @@ const Chatbot: React.FC = () => {
           <SendButton onSend={handleSendMessage} />
         </div>
       </div>
+      <ChatButton onToggle={toggleChat} />
     </div>
   );
 };
