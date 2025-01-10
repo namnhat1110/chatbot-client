@@ -1,5 +1,7 @@
+import Chatbot from "@/components/Chatbot";
+
 function App() {
-  return <>Chatbot Widget</>;
+  return <Chatbot />;
 }
 
 export default App;
