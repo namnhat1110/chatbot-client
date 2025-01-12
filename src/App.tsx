@@ -1,9 +1,9 @@
-import Chatbot from "@/components/Chatbot";
+import { ChatInterface } from "@/components/ChatInterface";
 
 function App() {
   return (
-    <div className="App flex justify-center items-center h-screen w-full bg-gray-500">
-      <Chatbot />
+    <div className="App flex justify-center items-center h-screen  bg-gray-500">
+      <ChatInterface />
     </div>
   );
 }

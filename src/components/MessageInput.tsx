@@ -1,17 +1,31 @@
 export function MessageInput({
-  inputValue,
-  setInputValue,
+  isLoading,
+  input,
+  setInput,
+  handleSubmit,
 }: {
-  inputValue: string;
-  setInputValue: (value: React.SetStateAction<string>) => void;
+  isLoading: boolean;
+  input: string;
+  setInput: React.Dispatch<React.SetStateAction<string>>;
+  handleSubmit: React.FormEventHandler<HTMLFormElement>;
 }) {
   return (
-    <input
-      type="text"
-      className="flex-1 border rounded-lg p-2"
-      value={inputValue}
-      onChange={(e) => setInputValue(e.target.value)}
-      placeholder="Type a message..."
-    />
+    <form onSubmit={handleSubmit} className="flex gap-2">
+      <input
+        type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        className="flex-1 p-2 border rounded"
+        placeholder="Type your message..."
+        disabled={isLoading}
+      />
+      <button
+        type="submit"
+        className="bg-blue-500 text-white px-4 py-2 rounded disabled:bg-blue-300"
+        disabled={isLoading}
+      >
+        Send
+      </button>
+    </form>
   );
 }
