@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { IMessage } from "@/types";
 
 export function MessageDisplay({
@@ -7,6 +8,12 @@ export function MessageDisplay({
   isLoading: boolean;
   messages: IMessage[];
 }) {
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
   return (
     <div className="h-96 overflow-y-auto overflow-x-hidden mb-4">
       {messages.map((msg, index) => (
@@ -32,6 +39,7 @@ export function MessageDisplay({
           <div className="animate-pulse">Thinking...</div>
         </div>
       )}
+      <div ref={messagesEndRef} />
     </div>
   );
 }
