@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { IMessage } from "@/types";
+import ReactMarkdown from "react-markdown";
 
 export function MessageDisplay({
   isLoading,
@@ -30,7 +31,7 @@ export function MessageDisplay({
                 : "bg-gray-300 animate-slide-in-left"
             }`}
           >
-            {msg.content}
+            <ReactMarkdown>{msg.content}</ReactMarkdown>
           </div>
         </div>
       ))}

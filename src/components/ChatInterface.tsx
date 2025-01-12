@@ -28,7 +28,7 @@ export const ChatInterface: React.FC = () => {
   }, [loadHistory]);
 
   return (
-    <div className="fixed bottom-4 right-4 w-[50rem]  p-4">
+    <div className="fixed bottom-4 right-4 w-full max-w-[50rem] p-4 md:max-w-2xl lg:max-w-4xl">
       <div
         className={`bg-white shadow-lg rounded-lg p-4 mt-2 transition-all duration-500 ease-in-out transform ${
           isVisible
